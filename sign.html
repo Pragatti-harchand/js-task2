@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var x = prompt("enter the of x");
+
+      var y = prompt("enter the of y");
+      var z = prompt("enter the of z");
+      //   value of all three
+      if (x > 0 && y > 0 && z > 0) {
+        alert("The sign is +");
+        // all positive +,+,+
+      } else if (x < 0 && y < 0 && z < 0) {
+        alert("The sign is -");
+        // all negative -,-,-
+      } else if (x > 0 && y < 0 && z < 0) {
+        alert("The sign is +");
+        // x postive ,y negative,z negative +,-,-
+      } else if (x < 0 && y > 0 && z < 0) {
+        alert("The sign is +");
+        // -,+,-
+      } else {
+        alert("The sign is -");
+      }
+    </script>
+  </body>
+</html>
