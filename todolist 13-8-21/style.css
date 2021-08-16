@@ -1,9 +1,11 @@
 body > table {
   width: 80%;
+  
 }
 
 table {
   border-collapse: collapse;
+  
 }
 table.list {
   width: 100%;
@@ -32,12 +34,13 @@ input[type="number"] {
 }
 input[type="submit"] {
   width: 30%;
-  background-color: aqua;
+  background-color:darkolivegreen;
   color: black;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
+  background-color: cadetblue;
   cursor: pointer;
 }
 
@@ -49,8 +52,4 @@ a {
   text-decoration: underline;
   color: violet;
   margin-right: 4px;
-}
-label.validation-error {
-  color: red;
-  margin-left: 5px;
 }
