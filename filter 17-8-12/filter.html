@@ -7,24 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script>
-     function createNewElement() {
-         
-         var txtNewInputBox = document.createElement('div');
-         txtNewInputBox.innerHTML = "<input type='text' id='newInputBox'>";
-         document.getElementById("newElementId").appendChild(txtNewInputBox);
-}
-     function onlyevennumber(arr){
-        
-        var arr = document.getElementsByClassName("even").value;
-         
-        for (var i = 0; i < arr.length; i++) {
-            if (arr[i] % 2 === 0) {
-            console.log(arr[i] + "<br />");
-            }
-            
-        }
-       
-    }
+     
     function onlyEvenValues(data){
         return data.filter(el=>el%2 ===0)
     }
