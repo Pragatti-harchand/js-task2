@@ -81,14 +81,3 @@ var arr = [
     }
 ]
 
-myfun(arr);
-
-function myfun(arr) {
-    let activearr = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].title == arr[i].routeLink) {
-            activearr.push(arr[i]);
-        }
-    }
-    console.log(activearr);
-}
