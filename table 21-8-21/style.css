@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image:url('./img/img.jpg');
+    background-image: no-repeat;
+    background-position: center;
+    
+    
+}
+
+
+
+
+
+.container{
+    background-image:radial-gradient(circle, #00aeff,rgb(71, 191, 221), #a4f177);
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 120px;
+
+}
+.form label{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+}

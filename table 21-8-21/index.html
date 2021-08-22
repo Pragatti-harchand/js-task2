@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.min.css" >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+   <link href="style.css"  rel="stylesheet">
+  <title>form</title>
+</head>
+<body>
+    
+    <div class="container">
+      
+        <h2>Registration Form</h2>
+      
+      <form  onsubmit="return validation()" autocomplete="off">
+         <div class="control">
+          <label>UserName</label>
+          <input type="text" id="name" class="form-control"  placeholder=" enter username">
+          <span id="username" class="text-danger fw-bolder" ></span>
+        </div>
+         <!-- end user field -->
+        <div>
+          <label  class="form-label">Password</label>
+          <input type="password"  id="password" class="form-control" placeholder=" enter password">
+          <span id="userpassword" class="text-danger fw-bolder" ></span>
+        </div>
+         <!-- end password field -->
+        <div>
+          <label  class="form-label"> confirm Password</label>
+          <input type="password"  id="conpassword" class="form-control" placeholder=" confirm password">
+          <span id="userconf" class="text-danger fw-bolder" ></span>
+        </div>
+          <!-- end confirm password -->
+         <div><br>
+        <input type="button" class="btn btn-success"  value="submit" onclick="validation()">
+        </div>
+        <!-- end of submit button -->
+      </div>
+      </form>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+  
