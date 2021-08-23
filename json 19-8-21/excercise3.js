@@ -19,7 +19,8 @@ function schemColor(array) {
         let jsonObj = array[i].json;
         for (let j in jsonObj) {
             if (active === true) {
-                console.log(jsonObj[j]);
+                // console.log(jsonObj[j]);
+                document.write(JSON.stringify(jsonObj[j]));
             }
         }
     }

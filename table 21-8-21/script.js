@@ -13,6 +13,9 @@ function validation() {
         document.getElementById('username').innerHTML = "** only character are allowed";
         return false;
     }
+    else {
+        document.getElementById('username').innerHTML = "";
+    }
 
     if (password == "") {
         document.getElementById('userpassword').innerHTML = "** please fill the password field";
@@ -22,9 +25,15 @@ function validation() {
         document.getElementById('userpassword').innerHTML = "** password length must be between 5 and 20";
         return false;
     }
+    else {
+        document.getElementById('userpassword').innerHTML = "";
+    }
     if (password != confirmpassword) {
         document.getElementById('userconf').innerHTML = "** password are not matching";
         return false;
+    }
+    else {
+        document.getElementById('userconf').innerHTML = "";
     }
     console.log(name);
     console.log(password);

@@ -17,7 +17,8 @@ function activeJson(array) {
     for (let i = 0; i < array.length; i++) {
         var active = array[i].activate;
         if (active === true) {
-            console.log(array[i].json);
+            // console.log(array[i].json);
+            document.write(JSON.stringify(array[i].json));
 
         }
 

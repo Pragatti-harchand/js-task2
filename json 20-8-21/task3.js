@@ -18,7 +18,7 @@ function onMatch() {
 function stepsNo(step, tag) {
     for (let i in step) {
         if (step[i].tag === tag) {
-            console.log(step[i]);
+            document.write(JSON.stringify(step[i]));
         }
 
     }
