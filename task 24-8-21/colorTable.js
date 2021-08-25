@@ -1,4 +1,8 @@
+
+
+
 function onPick() {
+
 
     fetch("./template.json")
         .then(function (resp) {
@@ -6,6 +10,7 @@ function onPick() {
         })
 
         .then(function (data) {
+
             colorData(data.colorschemes);
             // console.log("data", data);
         })
@@ -17,23 +22,14 @@ function onPick() {
 
 
 function colorData(array) {
-    for (let i = 0; i < array.length; i++) {
-        var id = array[i].id;
-        var activate = array[i].activate;
-        var name = array[i].name;
-        document.getElementById('tableBody').innerHTML += `
-    
-
-
-        <tr>
-        <td>${id}</td>
-        <td>${name}</td>
-        <td>${activate}</td>
-        </tr>`
-
-
-
-
-    }
+    document.getElementById('tableBody').innerHTML = "";
+    array.forEach(el => {
+        document.getElementById('tableBody').innerHTML += `<tr>
+            <td>${el.id}</td>
+            <td>${el.name}</td>
+            <td>${el.activate ? 'true' : 'false'}</td>
+        `
+    })
 
 }
+

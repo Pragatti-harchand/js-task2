@@ -1,4 +1,9 @@
-function onSort() {
+let colorSchemeData = null
+let sortAsc = true
+
+
+function onPick() {
+
 
     fetch("./template.json")
         .then(function (resp) {
@@ -6,55 +11,46 @@ function onSort() {
         })
 
         .then(function (data) {
-            // colorschemes.sort((i, j) => {
-            //     i = i.toUppercase();
-            //     j = j.toUppercase();
-            //     if (i > j) return -1;
-            //     if (i < j) return 1;
-            //     return 0;
-            sortData(data.colorschemes);
+            colorSchemeData = data.colorschemes
+            colorData(data.colorschemes);
+            // console.log("data", data);
         })
-        // console.log(data);
-
         .catch(function (error) {
             console.log(error);
         });
 
 }
 
-// $('th').on('click', function () {
-//     var column = $(this).data('column');
-//     var order = $(this).data('order');
-//     console.log('column was clicked', column, order)
-//     if (order == 'desc') {
-//         $(this).data('order', "asc")
 
-//     } else {
-//         $(this).data('order', "desc")
-//     }
-// })
-// $(document).ready(function () {
-//     $("#myTable").tablesorter()
+function colorData(array, col, order) {
+    document.getElementById('tableBody').innerHTML = "";
+    array.forEach(el => {
+        document.getElementById('tableBody').innerHTML += `<tr>
+            <td>${el.id}</td>
+            <td>${el.name}</td>
+            <td>${el.activate ? 'true' : 'false'}</td>
+        `
+    })
 
-// });
+}
 
-function sortData(array) {
-    for (let i = 0; i < array.length; i++) {
-        var id = array[i].id;
-        var activate = array[i].activate;
-        var name = array[i].name;
+function sortArray(column) {
+    colorSchemeData.sort((a, b) => {
+        a = a[column]
+        b = b[column]
+        if (sortAsc) {
+            if (a > b) return 1
+            if (a < b) return -1
+            return 0
 
-        document.getElementById('tableBody').innerHTML += `
-
-        
-
-
-        <tr>
-        <td>${id}</td>
-        <td>${name}</td>
-        <td>${activate}</td>
-        </tr>`
-
-    }
+        }
+        else {
+            if (a > b) return -1
+            if (a < b) return 1
+            return 0
+        }
+    })
+    colorData(colorSchemeData)
+    sortAsc = !sortAsc
 
 }

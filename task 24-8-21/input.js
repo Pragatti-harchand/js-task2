@@ -15,25 +15,30 @@ function onInput() {
 
 }
 function inputData(array) {
-    for (let i = 0; i < array.length; i++) {
-        // var id = array[i].id;
-        let element = []
-        var newArray = array.filter((el) => {
-            return el.id === name;
-        })
-        element.push(newArray);
-        // console.log(id);
-        var name = document.getElementById('txt').value;
-        // if (name === id) {
-        // document.write(newArray);
-        console.log(newArray);
-        // }
+    var name = document.getElementById('txt').value;
+    var newArray = array.filter((el) => {
+        return el.id == name
+    })
+
+    document.getElementById('tableBody').innerHTML += `
+      <tr>
+      <td>${newArray[0].id}</td>
+      <td>${newArray[0].name}</td>
+      <td>${newArray[0].activate ? 'true' : 'false'}</td>
+      </tr>`
+
+
+    // if (name === id) {
+    // docu
+    // console.log(newArray);
+
+    // }
 
 
 
 
 
 
-    }
 }
+
 

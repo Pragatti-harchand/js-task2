@@ -40,17 +40,21 @@
 
 }
   function generateTableData(alldata){
-      let userOneData = JSON.parse(alldata[0]["daily_pnl"])
-      let userTwoData = JSON.parse(alldata[1]["daily_pnl"])
-      Object.keys(userOneData).map( key=>{
-        document.getElementById('tableBody').innerHTML += `
-          <tr>
-            <td>${key}</td>
-            <td>${userOneData[key]}</td>
-            <td>${userTwoData[key]}</td>
-            </tr>
-        `
-      })
+    let totalUser = alldata.length
+    let usersData = []
+      for(let i =0;i<totalUser;i++){
+        usersData.push(JSON.parse(alldata[i]['daily_pnl']))
+      }
+      console.log(usersData)
+      // Object.keys(userOneData).map( key=>{
+      //   document.getElementById('tableBody').innerHTML += `
+      //     <tr>
+      //       <td>${key}</td>
+      //       <td>${userOneData[key]}</td>
+      //       <td>${userTwoData[key]}</td>
+      //       </tr>
+      //   `
+      // })
   }
 </script>
 
