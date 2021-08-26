@@ -8,6 +8,20 @@ function onFormSubmit() {
             updateRecord(formData);
         resetForm();
     }
+    if (document.getElementById("r1").checked) {
+        x = document.getElementById("r1").value
+        // console.log(x);
+    }
+    if (document.getElementById("r1").checked) {
+        x = document.getElementById("r1").value
+        // console.log(x);
+    }
+
+    if (document.getElementById("c1").checked) {
+        y = document.getElementById("c1").value
+    }
+
+    //
 
 }
 function readFormData() {
