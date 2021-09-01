@@ -52,3 +52,42 @@ div.content {
     float: none;
   }
 }
+
+.container{
+  width: 80%;
+  margin: auto;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.boxes{
+  border: 5px solid white;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  align-items: center;   
+  justify-content: flex-end; 
+  box-shadow: 0 0 10px silver;
+  transition: 300ms all;
+  background-size: cover;
+  background-position: center;
+  background-color: #334145; 
+}
+.box-content{
+  background-color:grey;
+  padding: 15px 5px;
+  text-align: center;
+  width: 100%;
+  transition: 300ms all;
+}
+.boxes:hover {
+  transform: scale(1.1);
+}
+.boxes:hover .box-content{
+  background-color: transparent;
+  color: white;
+} 
+
