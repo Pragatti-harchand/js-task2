@@ -13,7 +13,7 @@
   </head>
   <body>
     <!-- start of navbar -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light">
       <div class="container-fluid">
         <a href="addItem.html">
           <button class="btn btn-outline-primary" type="submit">Add item</button>
@@ -27,24 +27,26 @@
     <!-- end of navbar -->
     <!-- start of side bar -->
     <div class="sidebar">
-        <a class="active" href="#home">Home</a>
-        <a href="#">Trash</a>
+        <a class="active" onclick="showProducts()" href="#home">Home</a>
+        <a href="#" onClick="showTrash()">Trash</a>
         <!-- checkbox -->
-       <input type="button" value="company location"><br><br>
-       <input type="checkbox" id="Location1" name="chandigarh">
+        <button class="btn btn-outline-success" type="submit"  onclick="selectLocation()">Location</button><br>
+       <input type="checkbox" id="chandigarh" class="checks"   value="chandigarh"name="location">
           <label for="l1">chandigarh</label><br>
-          <input type="checkbox" id="Location2" name="delhi">
+          <input type="checkbox" id="delhi" class="checks" value="delhi" name="location">
           <label for="l2">delhi</label><br>
-          <input type="checkbox" id="Gujarat" name="Gujarat">
+          <input type="checkbox" id="Gujarat" class="checks" value="gujarat"name="location">
           <label for="l3">Gujarat</label><br><br>
            <!-- end of checkbox -->
            <!-- stock button -->
-         <input type="button" value="course"><br><br>
-         <div class="radio">
-           <label><input type="radio" name="optradio" checked>Course Available</label>
-          </div>
-          <div class="radio">
-            <label><input type="radio" name="optradio">Not Available</label>
+           
+           
+           <div id="rates">
+             <input type="radio" id="r1" name="rate" value="in"> In stock<br>
+             <input type="radio" id="r2" name="rate" value="out"> Out of Stock
+             
+             <button class="btn btn-outline-success" type="submit"  onclick="selectStocks()">Stocks</button><br>
+            </div>
           </div>
           
         </div>
@@ -53,11 +55,15 @@
         <div class="container">
            
         </div>
+
+        <div class="trash-container">
+
+        </div>
         
-         <div class="card">
+         <!-- <div class="card">
           
-        </div> 
-        end of card part -->
+        </div>  -->
+        <!-- end of card part --> -->
         
         
         

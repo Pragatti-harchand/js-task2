@@ -1,13 +1,14 @@
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
+
 }
 
 .sidebar {
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -26,7 +27,7 @@ body {
 }
 
 .sidebar a:hover:not(.active) {
-  background-color: #555;
+  background-color:rgb(59, 59, 59);
   color: white;
 }
 
@@ -64,20 +65,20 @@ div.content {
 .boxes{
   border: 5px solid white;
   width: 300px;
-  height: 200px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   margin: 8px;
   align-items: center;   
   justify-content: flex-end; 
-  box-shadow: 0 0 10px silver;
+  /* box-shadow: 0 0 10px silver; */
   transition: 300ms all;
   background-size: cover;
   background-position: center;
-  background-color: #334145; 
+  /* background-color: #334145;  */
 }
 .box-content{
-  background-color:grey;
+  /* background-color:grey; */
   padding: 15px 5px;
   text-align: center;
   width: 100%;
@@ -87,8 +88,8 @@ div.content {
   transform: scale(1.1);
 }
 .boxes:hover .box-content{
-  background-color: transparent;
-  color: white;
+  /* background-color: transparent; */
+  color:black;
 } 
 
 input[type=text], select {
@@ -121,3 +122,7 @@ div {
   background-color: #f2f2f2;
   padding: 20px;
 }
+
+/* form{
+  margin-top: 150px;
+} */
