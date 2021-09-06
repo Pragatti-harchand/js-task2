@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+     
+    function onlyEvenValues(data){
+        return data.filter(el=>el%2 ===0)
+    }
+    function addNewElement(){
+        document.getElementById('newElementId').innerHTML += '<input class="inputNumbers" >';
+    }
+    function handleSubmit(){
+       let allValues= document.querySelectorAll('.inputNumbers')
+      allValues = [...allValues]
+      let numbers = allValues.map(el => +el.value)
+      numbers = onlyEvenValues(numbers)
+      numbers.forEach(x => {
+          document.getElementById('listEven').innerHTML += `<li>${x}</li>`
+      })
+    }
+
+
+     
+	
+    </script>
+</head>
+<body>
+    <div class="style">
+        <h1>Enter the number</h1>
+    <div id="newElementId">
+
+    </div>
+    <div id="dynamicCheck">
+        <input type="button" value="ADD"  onclick="addNewElement();"/>
+        <input type="submit" value="submit" class="even" onclick="handleSubmit()">
+    </div>
+    <h2>Even Values</h2>
+    <ul id="listEven">
+
+    </ul>
+    </div>
+</body>
+</html>

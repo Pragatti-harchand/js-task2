@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function arr_pairs(arr) {
+        var result = [];
+        for (var i = 0; i < arr.length; i++) {
+          for (var j = i + 1; j < arr.length; j++) {
+            if (arr[i] % arr[j] === 0 || arr[j] % arr[i] === 0) {
+              result.push({ [arr[i]]: arr[j] });
+            }
+          }
+        }
+        return result;
+      }
+      var myJson = JSON.stringify(arr_pairs([8, 2, 3, 4, 5, 6]));
+      document.write(myJson);
+    </script>
+  </body>
+</html>
