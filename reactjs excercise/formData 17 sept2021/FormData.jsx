@@ -21,8 +21,8 @@ export default class Form extends Component {
 
 handlesubmit=(e)=>{
     // console.log(e.target)
+    e.preventDefault();
     if(this.state.mode === 'create'){
-        e.preventDefault();
         let allData = {}
         let formData  = new FormData(e.target)
         for(let [key, value] of formData) {
@@ -33,7 +33,7 @@ handlesubmit=(e)=>{
         this.setState({formData: allData})
         this.setState({items: [...this.state.items, allData]})
         this.setState({value:''})
-        this.setState(e.target.reset())
+        this.setState({formData: null})
     }
     // console.log(this.state.selectedId)
     // console.log(this.state.value, 'value')
@@ -42,10 +42,17 @@ handlesubmit=(e)=>{
    
     else if(this.state.mode === 'update'){
         let newItems = [...this.state.items];
-        newItems[this.state.selectedId] = this.state.allData;
+        let allData = {}
+        let formData  = new FormData(e.target)
+        for(let [key, value] of formData) {
+            allData[key] = value
+            // console.log(key, value)
+        
+        }
+        newItems[this.state.selectedId] = allData;
         console.log('new items', newItems)
         this.setState({items: newItems})
-        // this.setState({value:''})
+        this.setState({formData: null})
     }
     this.setState({mode: 'create'})
 
@@ -75,6 +82,12 @@ handlesubmit=(e)=>{
      console.log("update",this.state.formData)
   
  }
+ handleChange = (e) => {
+     this.setState({formData: {...this.state.formData, [e.target.name]: e.target.value}})
+    console.log(this.state.formData)
+    }
+ 
+ 
 
 
 render(){
@@ -82,23 +95,23 @@ render(){
     return(
        <div className="mt-5 p-5 mx-auto shadow col-md-6"  >
            <center><h2>Registration Form </h2></center>
-           <form onSubmit={this.handlesubmit}> 
+           <form onSubmit={this.handlesubmit} onChange={this.handleChange}> 
                      <h5>Enter the name: </h5>
-                    <input type="text" name="name"  placeholder="Name" />
-                    <input type="text" name="lname"  placeholder="last name" /> <br />
+                    <input type="text" name="name"  placeholder="Name" value={this.state.formData  ?  this.state.formData.name: ''} />
+                    <input type="text" name="lname"  placeholder="last name" value={this.state.formData  ?  this.state.formData.lname: ''}  /> <br />
                     <h5>Enter the Gender:</h5>
-                    <input type="radio"  name="gender" value="male" /> Male
-                    <input type="radio" name="gender" value="female" /> Female<br />
+                    <input type="radio" checked={this.state.formData && this.state.formData.gender === 'male'? true: false}  name="gender" value="male" /> Male
+                    <input type="radio"  checked={this.state.formData && this.state.formData.gender === 'female'? true: false} name="gender" value="female" /> Female<br />
                     <h5>Enter the location :</h5>
-                    <input type="checkbox" name="location" id="" value="Mohali" /> Mohali
-                    <input type="checkbox" name="location" id="" value="Chandigarh" /> Chandigarh
-                    <input type="checkbox" name="location" id="" value="Ambala" /> Ambala
-                    <input type="checkbox" name="location" id="" value="Patiala" /> Patiala <br/>
+                    <input type="checkbox" checked={this.state.formData && this.state.formData.location1 === 'Mohali'? true: false} name="location1" id=""  value="Mohali" /> Mohali
+                    <input type="checkbox" checked={this.state.formData && this.state.formData.location2 === 'Chandigarh'? true: false}  name="location2" id="" value="Chandigarh" /> Chandigarh
+                    <input type="checkbox" checked={this.state.formData && this.state.formData.location3 === 'Ambala'? true: false}  name="location3" id="" value="Ambala" /> Ambala
+                    <input type="checkbox" name="location4" id="" checked={this.state.formData && this.state.formData.location4 === 'Patiala'? true: false} value="Patiala" /> Patiala <br/>
                     <h5> Enter the age group:</h5>
                     <select name="ageGroup" id="">
-                        <option value="teenager">Teen</option>
-                        <option value="adult">Adult</option>
-                        <option value="senior">Senior</option>
+                        <option value="teenager" selected={this.state.formData && this.state.formData.ageGroup === 'Teenager' ? true: false}>Teenager</option>
+                        <option value="adult" selected={this.state.formData && this.state.formData.ageGroup === 'Adult' ? true: false}>Adult</option>
+                        <option value="senior" selected={this.state.formData && this.state.formData.ageGroup === 'senior' ? true: false}>Senior</option>
                     </select><br/>
                     <br/>
                     <button type="submit" class="btn btn-info btn-lg">{this.state.mode ==='create'? 'ADD': 'Update'} </button>
@@ -123,7 +136,12 @@ render(){
                             <td>{el.name}</td>
                             <td>{el.lname}</td>
                             <td>{el.gender}</td>
-                            <td>{el.location}</td>
+                            <td>{`${el.location1 ? el.location1 : ''}
+                             ${el.location2 ? el.location2: '' }
+                             ${el.location3 ? el.location3: '' }
+                             ${el.location4 ? el.location4: '' }
+                            
+                            `}</td>
                             <td>{el.ageGroup}</td>
                           <td>   <button  className="btn btn-danger" onClick={()=> { if (window.confirm('Are you sure you wish to delete this item?')) this.deleteCity(id)} }>Delete <FontAwesomeIcon icon={faTrash} /></button> </td>
                         <td>    <button className="btn btn-success" onClick={()=> this.updateCity(id)} >Edit<FontAwesomeIcon icon={faPen}  onClick={()=> this.updateCity(id)}/></button> </td>
