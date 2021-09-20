@@ -1,0 +1,37 @@
+body{
+  background-color: rgb(224, 228, 228)!important;
+}
+
+ button{
+  border-radius: 20% !important;
+  border-color: transparent;
+  background-color: violet;
+  color: azure;
+  font-size: 20px !important;
+  border: none;
+  outline: none;
+  margin-left: 10% !important;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0,0, 0.3) !important;
+ }
+
+button:hover{
+  background-color: green;
+}
+.trash{
+  /* border-radius: 50% !important; */
+ color: red;
+ margin-right: 23px  !important;
+ margin-left: 6px  !important;
+}
+
+.trash:hover{
+color: sandybrown;
+}
+input{
+  border: none;
+  border-bottom: 2px solid purple;
+}
+.Edit{
+  color:green;
+
+}
