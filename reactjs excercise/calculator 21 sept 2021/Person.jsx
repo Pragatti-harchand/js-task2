@@ -35,12 +35,21 @@ function Person() {
 		if (validation.error) {
 			setErrors(validation.error.details);
 		}
-		else{
+		else if(mode ==='create'){
 
 			formData && setPersons([...persons, formData])
 			setFormData(null)
 		}
+		else if(mode ==='update'){
+           let newItems =[...persons];
+           newItems[selectedId]=formData;
+		   setPersons(newItems);
+		   setFormData(null);
+
+		}
 		console.log("formData",persons)
+		setmode('create')
+
 	};
  const	deleteCity = (id) => {
      
