@@ -43,7 +43,9 @@ function Person() {
 		else if(mode ==='update'){
            let newItems =[...persons];
            newItems[selectedId]=formData;
+		   console.log("new items" ,newItems)
 		   setPersons(newItems);
+
 		   setFormData(null);
 
 		}
@@ -66,7 +68,8 @@ function Person() {
 			setselectedId(id)
 			setmode('update')
 			// setState({mode:'update'})
-			setFormData(persons[id])
+			// setFormData(persons[id])
+			console.log("formars",persons[id])
 			console.log("update",setFormData)
 		}
 
