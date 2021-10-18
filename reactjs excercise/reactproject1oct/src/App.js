@@ -19,7 +19,7 @@ function App() {
          
      
 			<Route path="/dashboard" component={Dashboard} /> 
-			<Route path="/signup" component={Signup} /> 
+			<Route path="/" exact component={Signup} /> 
       {/* <Signup/> */}
       {/* <Person></Person> */}
       {/* <TableForm></TableForm> */}

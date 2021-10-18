@@ -44,9 +44,22 @@ const useStyles = makeStyles(theme=>({
 
 function Person(props) {
     const classes = useStyles();
-    const [persons, setPersons] = useState([])
+    const [persons, setPersons] = useState(localStorage.getItem('form')? JSON.parse(localStorage.getItem('form')): [])
+	const [mode, setMode] = useState('create')
     const [formData, setFormData] = useState(null);
-	
+	let localData = null;
+	useEffect(() => {
+		let id = props.match.params.id;
+
+		localData = localStorage.getItem('form');
+		localData = JSON.parse(localData)
+		if(localData && localData[id]){
+			setFormData(localData[id])
+			setMode('update')
+		} 
+			
+
+	}, [])
    
    
     const handleFormChange = (e) => {
@@ -60,9 +73,18 @@ function Person(props) {
     const handleFormSubmit = (e) => {
 		e.preventDefault();
         formData && setPersons([...persons, formData])
+		// localStorage.setItem('form',JSON.stringify(	persons))
 		
 			setFormData(null)
     }
+	
+	const handleUpdate = () => {
+		
+		persons[props.match.params.id] = formData;
+		localStorage.setItem('form', JSON.stringify(persons))
+		props.history.push('/dashboard/table')
+	}
+	
 
 	useEffect(() => {
 		localStorage.setItem('form',JSON.stringify(	persons))
@@ -113,17 +135,7 @@ function Person(props) {
 							/>
 						</Grid>
 
-						<Grid item xs={6} className={classes.Container}>
-						<TextField
-                           fullWidth
-						   // id="outlined-basic"
-						   label="image"
-						   variant="outlined"
-						   name="image"
-						   type="file"
-						   value={formData  ?  formData.image: ''}
-                         />
-						</Grid>
+						
 
 						<Grid item xs={6} className={classes.Container}>
 						<TextField
@@ -140,12 +152,12 @@ function Person(props) {
 						
 
 
-                        
+                        {mode === 'create' ? 
                             <Button type="submit" variant="contained" color="success">
                                   Submit
-                                  </Button>
-							</Grid>
-						
+                                  </Button> : <Button onClick={handleUpdate} variant="contained" color="secondary">Update</Button>
+						}
+						</Grid>
 					
 				</form>
 			</Paper>

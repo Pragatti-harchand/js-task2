@@ -4,8 +4,9 @@ import React,{useState} from 'react'
 export default function TableForm(props) {
 	const [mode, setmode] = useState('create');
     const [selectedId,setselectedId ] = useState(null)
+	let data = null
 	const getDatafromLS=()=>{
-		const data =localStorage.getItem('form');
+		data =localStorage.getItem('form');
 		if(data){
 			return JSON.parse(data);
 		}
@@ -16,9 +17,7 @@ export default function TableForm(props) {
 	const [persons, setPersons] = useState(getDatafromLS())
 	const updateCity = (id) => {
         console.log('id', id)
-   
-        setselectedId(id)
-        setmode('update')
+		props.history.push(`/dashboard/person/${id}`)
         // setState({mode:'update'})
         // (Items[id])
         // console.log("update",setInputList)

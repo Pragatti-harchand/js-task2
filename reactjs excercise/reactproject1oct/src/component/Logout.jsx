@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-export default class UserLogout extends Component {
+export default class Logout extends Component {
  
  logout = () => {
     localStorage.clear();

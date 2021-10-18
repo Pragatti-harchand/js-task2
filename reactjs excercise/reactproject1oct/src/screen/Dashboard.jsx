@@ -2,14 +2,15 @@ import React from "react";
 // import Main from "../components/Main";
 import Navbar from "../component/Navbar";
 import Sidebar from "../component/Sidebar";
-import Table from "../component/TableForm";
+
 import  { Route } from "react-router-dom";
 
 import "./dashboard.css";
 import Person from "../component/Person";
 import Category from "../component/Category";
 import TableForm from "../component/TableForm";
-import Apidata from "../component/Apidata";
+
+import Logout from "../component/Logout";
 
 
 export default function Dashboard() {
@@ -23,9 +24,10 @@ export default function Dashboard() {
                   
 			
 				  
-				<Route path="/dashboard/person" component={Person} />
+				<Route path="/dashboard/person/:id?"  component={Person} />
 				<Route path="/dashboard/categories" component={Category} />
 				<Route path="/dashboard/table" component={TableForm} />
+				<Route path="/dashboard/Logout" component={Logout} />
 				
 			</div> 
 		</div>
